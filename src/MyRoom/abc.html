@@ -1,0 +1,44 @@
+<div id="app" ng-app="editorApp" ng-controller="mainCtrl">
+  <svg 
+  class="editor-preview" 
+  vbox="0 0 {{editor.baseWidth}} {{editor.baseHeight}}" 
+  ng-class="{'is-preview': editor.isPreview}" 
+  xmlns="http://www.w3.org/2000/svg">
+    <image x="0" y="0" width="100%" ng-attr-href="{{editor.imageUrl}}"/>
+
+    <g
+    ng-repeat="area in editor.areas"
+    class="editor-area"
+    ng-click="editor.changeColor(area);">
+
+      <path
+      ng-attr-d="{{area.pathData}}"
+      ng-attr-fill="{{area.color || 'none'}}"
+      class="editor-area-preview">
+      </path>
+
+      <path
+      ng-attr-d="{{area.pathData}}"
+      ng-if="!editor.isPreview"
+      class="editor-area-overlay">
+      </path>
+
+    </g>
+  </svg>
+  <div class="toolbar">
+    <div>
+      <a class="u-mr-1" ng-href="{{editor.dataUrl}}" download="your-dream-home.png">Download</a>
+      <label>
+        <input type="checkbox" ng-model="editor.isPreview">
+        Show Preview
+      </label>
+    </div>
+    <div class="u-mt-1">
+      <label for="">Selected Color: </label>
+      <input type="color" data-is-empty="{{!editor.selectedColor}}" ng-model="editor.selectedColor"> (Click on area to fill with this color)
+    </div>
+    <div class="u-muted u-italic u-mt-1" ng-if="editor.isPreview">
+      Editor is in preview mode you cannot make changes
+    </div>
+  </div>
+</div>

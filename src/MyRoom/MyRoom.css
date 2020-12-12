@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    user-select: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-preview {
+    height: 100%;
+}
+
+.editor-preview.is-preview {
+    pointer-events: none;
+}
+
+.editor-area-overlay {
+    stroke: rgba(171, 71, 188, 0.5);
+    stroke-width: 3px;
+    fill: transparent;
+
+    cursor: pointer;
+    transition: all ease-in-out .2s;
+}
+
+.editor-preview.is-preview .editor-area-overlay {
+    cursor: default;
+}
+
+.editor-area:hover .editor-area-overlay {
+    stroke: rgba(171, 71, 188, 1);
+    fill: rgba(171, 71, 188, 0.1);
+}
+
+.editor-area.is-selected .editor-area-overlay {
+    stroke: rgba(171, 71, 188, 1);
+    fill: rgba(171, 71, 188, 0.3);
+}
+
+.toolbar {
+    padding: 1em;
+}
+
+.toolbar input[type=color] {
+    -webkit-appearance: none;
+    vertical-align: middle;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    cursor: pointer;
+    height: 2em;
+    width: 2em;
+    margin-top: -2px;
+}
+
+.toolbar input[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.toolbar input[type=color]::-webkit-color-swatch {
+    border: none;
+}
+
+.toolbar input[data-is-empty=true]::-webkit-color-swatch {
+    background-color: transparent !important;
+}
+
+
+/* Utils */
+.u-muted {
+    color: #555 !important;
+}
+
+.u-italic {
+    font-style: italic !important;
+}
+
+.u-mr-1 {
+    margin-right: 0.5em;
+}
+
+.u-mt-1 {
+    margin-top: 0.5em;
+}
