@@ -49,6 +49,8 @@ class MyRoom extends Component {
         const svgProps = {
             className: "editor-preview",
             vbox: "0 0 1200 750",
+            width: baseWidth,
+            height: baseHeight
         };
 
         const gData = areas.map(area => {

@@ -32,7 +32,7 @@ body {
 .editor-area-overlay {
     stroke: rgba(171, 71, 188, 0.5);
     stroke-width: 3px;
-    fill: transparent;
+    /* fill: transparent; */
 
     cursor: pointer;
     transition: all ease-in-out .2s;
